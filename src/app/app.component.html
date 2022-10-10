@@ -1,112 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ticket</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
 </head>
 
 <body>
-  <div class="border contenedor">
-    <main>
-      <header class="header" id="header">
-        <img src="./img/selogo.jpg" alt="logoSecretaria">
-        <h1>Ticket de Turno</h1>
-        <img src="./img/number.jpg" alt="imagen turno">
-      </header>
+    <div class="border contenedor">
+        <main>
+            <header class="header" id="header">
+                <img src="../assets/img/selogo.jpg" alt="logoSecretaria">
+                <h1>Ticket de Turno</h1>
+                <img src="../assets/img/number.jpg" alt="imagen turno">
+            </header>
 
-      <form
-      [formGroup]="registerForm" (ngSubmit)="onSubmit()"
-       >
-        <!-- <fieldset> -->
-        <div class="contenedor-contenido" id="contenidoForm">
-          <div class="contenido">
-            <div>
-              <label for="nombre_completo">Nombre Completo de quien realizá el trámite: </label>
-              <input type="text" formControlName="nombre_completo"
-                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre_completo'].errors }" />
-              <div *ngIf="submitted && registerForm.controls['nombre_completo'].errors" class="text-danger">
-                <div *ngIf="registerForm.controls['nombre_completo'].errors['required']">First Name is required</div>
-              </div>
-              <div>
-                <label for="curp">CURP: </label>
-                <input type="text" name="curp" id="curp">
-              </div>
-            </div>
-            <div class="contenido">
-              <div>
-                <label for="nombre">Nombre: </label>
-                <input type="text" name="nombre" id="nombre">
-              </div>
-              <div>
-                <label for="apellido_paterno">Paterno: </label>
-                <input type="text" id="apellido_paterno" name="apellido_paterno">
-              </div>
-              <div>
-                <label for="apellido_materno">Materno: </label>
-                <input type="text" id="apellido_materno" name="apellido_materno">
-              </div>
-            </div>
-            <div class="contenido">
-              <div>
-                <label for="telefono">Telefono:</label>
-                <input type="tel" id="telefono" name="telefono">
-              </div>
-              <div>
-                <label for="celular">Celular:</label>
-                <input type="tel" id="celular" name="celular">
-              </div>
-              <div>
-                <label for="correo">Correo: </label>
-                <input type="email" name="correo" id="correo">
-              </div>
-            </div>
-            <div class="contenido">
-              <div class="contenedor">
-                <label for="nivel">¿Nivel al que desea ingresar o que ya esta cursando el alumno?: </label>
-                <select class="selects" name="nivel" id="nivel">
-                  <option value="" selected disabled hidden>--selecccionar--</option>
-                  <option value="preescolar">preescolar</option>
-                  <option value="primaria">primaria</option>
-                  <option value="secundaria">secundaria</option>
-                </select>
-              </div>
-              <div>
-                <label for="municipio">Municipio donde desea estudie el alumno: </label>
-                <select class="selects" name="municipio" id="municipio">
-                  <option value="" selected disabled hidden>--selecccionar--</option>
-                  <option value="saltillo">saltillo</option>
-                  <option value="parras">parras</option>
-                  <option value="torreon">torreon</option>
-                </select>
-              </div>
-              <div>
-                <label for="asunto">Seleccione el asunto que va a tratar: </label>
-                <select class="selects" name="asunto" id="asunto">
-                  <option value="" selected disabled hidden>--selecccionar--</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="btn"><button id="enviarFormulario" type="submit">Generar Turno</button></div>
-          <!-- </fieldset> -->
-
-      </form>
-    </main>
-    <footer class="contenedor-contenido footer">
-      <img src="./img/codigoBarras.jpg" alt="">
-      <img src="./img/qr.jpg" alt="">
-    </footer>
-  </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <!-- <fieldset> -->
+                <div class="contenedor-contenido" id="contenidoForm">
+                    <div class=" contenido">
+                        <div>
+                            <label for="nombre_completo">Nombre Completo de quien realizá el trámite: </label>
+                            <input type="text" name="nombre_completo" id="nombre_completo"
+                            formControlName="nombre_completo"
+                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre_completo'].errors }"
+                            />
+                            <div *ngIf="submitted && registerForm.controls['nombre_completo'].errors" class="text-danger">
+                                <div *ngIf="registerForm.controls['nombre_completo'].errors['required']">El Nombre es requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="curp">CURP: </label>
+                            <input type="text" name="curp" id="curp"
+                            formControlName="curp"
+                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['curp'].errors }">
+                            <div *ngIf="submitted && registerForm.controls['curp'].errors" class="text-danger">
+                                <div *ngIf="registerForm.controls['curp'].errors['required']">El Curp es requerido
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido">
+                        <div>
+                            <label for="nombre">Nombre: </label>
+                            <input type="text" name="nombre" id="nombre"
+                            formControlName="nombre"
+                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre'].errors }">
+                            <div *ngIf="submitted && registerForm.controls['nombre'].errors" class="text-danger">
+                                <div *ngIf="registerForm.controls['nombre'].errors['required']">El nombre es requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="apellido_paterno">Paterno: </label>
+                            <input type="text" id="apellido_paterno" name="apellido_paterno"
+                            formControlName="apellido_paterno"
+                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['apellido_paterno'].errors }">
+                            <div *ngIf="submitted && registerForm.controls['apellido_paterno'].errors" class="text-danger">
+                                <div *ngIf="registerForm.controls['apellido_paterno'].errors['required']">El apellido paterno es requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="apellido_materno">Materno: </label>
+                            <input type="text" id="apellido_materno" name="apellido_materno"
+                            formControlName="apellido_materno"
+                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['apellido_materno'].errors }">
+                            <div *ngIf="submitted && registerForm.controls['apellido_materno'].errors" class="text-danger">
+                                <div *ngIf="registerForm.controls['apellido_materno'].errors['required']">El apellido materno es requerido
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido">
+                        <div>
+                            <label for="telefono">Telefono:</label>
+                            <input type="tel" id="telefono" name="telefono"
+                            formControlName="telefono"
+                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['telefono'].errors }">
+                            <div *ngIf="submitted && registerForm.controls['telefono'].errors" class="text-danger">
+                                <div *ngIf="registerForm.controls['telefono'].errors['required']">El telefono es requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="celular">Celular:</label>
+                            <input type="tel" id="celular" name="celular">
+                        </div>
+                        <div>
+                            <label for="correo">Correo: </label>
+                            <input type="email" name="correo" id="correo"
+                            formControlName="correo"
+                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['correo'].errors }">
+                            <div *ngIf="submitted && registerForm.controls['correo'].errors" class="text-danger">
+                                <div *ngIf="registerForm.controls['correo'].errors['required']">El correo es requerido
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenido">
+                        <div class="contenedor">
+                            <label for="nivel">¿Nivel al que desea ingresar o que ya esta cursando el alumno?: </label>
+                            <select class="selects" name="nivel" id="nivel">
+                                <option value="" selected disabled hidden>--selecccionar--</option>
+                                <option value="preescolar">preescolar</option>
+                                <option value="primaria">primaria</option>
+                                <option value="secundaria">secundaria</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="municipio">Municipio donde desea estudie el alumno: </label>
+                            <select class="selects" name="municipio" id="municipio">
+                                <option value="" selected disabled hidden>--selecccionar--</option>
+                                <option value="saltillo">saltillo</option>
+                                <option value="parras">parras</option>
+                                <option value="torreon">torreon</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="asunto">Seleccione el asunto que va a tratar: </label>
+                            <select class="selects" name="asunto" id="asunto">
+                                <option value="" selected disabled hidden>--selecccionar--</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn"><button id="enviarFormulario" type="submit">Generar Turno</button></div>
+            </form>
+        </main>
+        <footer class="contenedor-contenido footer">
+            <img src="../assets/img/codigoBarras.jpg" alt="">
+            <img src="../assets/img/qr.jpg" alt="">
+        </footer>
+    </div>
 </body>
-
-<!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
-<!-- <script src="js/moment.js"></script>
-<script src="js/index.js"></script> -->
 
 </html>
