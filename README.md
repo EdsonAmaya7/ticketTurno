@@ -1,5 +1,7 @@
 # TicketAngular
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6c900afa-776b-4f49-9808-79fa8dfdfe90/deploy-status)](https://app.netlify.com/sites/endearing-boba-96cc22/deploys)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
 ## Development server

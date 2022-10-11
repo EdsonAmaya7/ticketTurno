@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,32 +23,45 @@
                     <div class=" contenido">
                         <div>
                             <label for="nombre_completo">Nombre Completo de quien realizá el trámite: </label>
-                            <input type="text" name="nombre_completo" id="nombre_completo"
-                            formControlName="nombre_completo"
-                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre_completo'].errors }"
-                            />
-                            <div *ngIf="submitted && registerForm.controls['nombre_completo'].errors" class="text-danger">
-                                <div *ngIf="registerForm.controls['nombre_completo'].errors['required']">El Nombre es requerido
-                                </div>
+                            <input type="text" name="nombreCompleto" id="nombreCompleto"
+                                formControlName="nombreCompleto"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombreCompleto'].errors }" />
+                            <div
+                                *ngIf="registerForm.get('nombreCompleto')?.invalid &&
+                                    registerForm.get('nombreCompleto')?.errors &&
+                                    (registerForm.get('nombreCompleto')?.dirty || registerForm.get('nombreCompleto')?.touched)">
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('nombreCompleto')?.hasError('required')">
+                                    El nombre es requerido
+                                </small>
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('nombreCompleto')?.hasError('minlength')">
+                                    el nombre debe ser de almenos 3 caracteres
+                                </small>
                             </div>
                         </div>
                         <div>
                             <label for="curp">CURP: </label>
-                            <input type="text" name="curp" id="curp"
-                            formControlName="curp"
-                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['curp'].errors }">
-                            <div *ngIf="submitted && registerForm.controls['curp'].errors" class="text-danger">
-                                <div *ngIf="registerForm.controls['curp'].errors['required']">El Curp es requerido
-                                </div>
+                            <input type="text" name="curp" id="curp" formControlName="curp"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['curp'].errors }">
+                            <div *ngIf="registerForm.get('curp')?.invalid &&
+                                registerForm.get('curp')?.errors &&
+                                (registerForm.get('curp')?.dirty || registerForm.get('curp')?.touched)">
+                                <small class="text-danger" *ngIf="registerForm.get('curp')?.hasError('required')">
+                                    El curp es requerido
+                                </small>
+
+                                <small class="text-danger" *ngIf="registerForm.get('curp')?.hasError('pattern')">
+                                    Curp Invalido
+                                </small>
                             </div>
                         </div>
                     </div>
                     <div class="contenido">
                         <div>
                             <label for="nombre">Nombre: </label>
-                            <input type="text" name="nombre" id="nombre"
-                            formControlName="nombre"
-                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre'].errors }">
+                            <input type="text" name="nombre" id="nombre" formControlName="nombre"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre'].errors }">
                             <div *ngIf="submitted && registerForm.controls['nombre'].errors" class="text-danger">
                                 <div *ngIf="registerForm.controls['nombre'].errors['required']">El nombre es requerido
                                 </div>
@@ -56,47 +70,92 @@
                         <div>
                             <label for="apellido_paterno">Paterno: </label>
                             <input type="text" id="apellido_paterno" name="apellido_paterno"
-                            formControlName="apellido_paterno"
-                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['apellido_paterno'].errors }">
-                            <div *ngIf="submitted && registerForm.controls['apellido_paterno'].errors" class="text-danger">
-                                <div *ngIf="registerForm.controls['apellido_paterno'].errors['required']">El apellido paterno es requerido
-                                </div>
+                                formControlName="apellido_paterno"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['apellido_paterno'].errors }">
+                            <div
+                                *ngIf="registerForm.get('apellido_paterno')?.invalid &&
+                                registerForm.get('apellido_paterno')?.errors &&
+                                (registerForm.get('apellido_paterno')?.dirty || registerForm.get('apellido_paterno')?.touched)">
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('apellido_paterno')?.hasError('required')">
+                                    El apellido paterno es requerido
+                                </small>
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('apellido_paterno')?.hasError('minlength')">
+                                    el apellido paterno debe ser de almenos 3 caracteres
+                                </small>
                             </div>
                         </div>
                         <div>
                             <label for="apellido_materno">Materno: </label>
                             <input type="text" id="apellido_materno" name="apellido_materno"
-                            formControlName="apellido_materno"
-                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['apellido_materno'].errors }">
-                            <div *ngIf="submitted && registerForm.controls['apellido_materno'].errors" class="text-danger">
-                                <div *ngIf="registerForm.controls['apellido_materno'].errors['required']">El apellido materno es requerido
-                                </div>
+                                formControlName="apellido_materno"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['apellido_materno'].errors }">
+                            <div
+                                *ngIf="registerForm.get('apellido_materno')?.invalid &&
+                                registerForm.get('apellido_materno')?.errors &&
+                                (registerForm.get('apellido_materno')?.dirty || registerForm.get('apellido_materno')?.touched)">
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('apellido_materno')?.hasError('required')">
+                                    El apellido materno es requerido
+                                </small>
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('apellido_materno')?.hasError('minlength')">
+                                    el apellido materno debe ser de almenos 3 caracteres
+                                </small>
                             </div>
                         </div>
                     </div>
                     <div class="contenido">
                         <div>
                             <label for="telefono">Telefono:</label>
-                            <input type="tel" id="telefono" name="telefono"
-                            formControlName="telefono"
-                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['telefono'].errors }">
-                            <div *ngIf="submitted && registerForm.controls['telefono'].errors" class="text-danger">
-                                <div *ngIf="registerForm.controls['telefono'].errors['required']">El telefono es requerido
-                                </div>
+                            <input type="tel" id="telefono" name="telefono" formControlName="telefono"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['telefono'].errors }">
+                            <div *ngIf="registerForm.get('telefono')?.invalid &&
+                                registerForm.get('telefono')?.errors &&
+                                (registerForm.get('telefono')?.dirty || registerForm.get('telefono')?.touched)">
+                                <small class="text-danger" *ngIf="registerForm.get('telefono')?.hasError('required')">
+                                    El telefono es requerido
+                                </small>
+                                <small class="text-danger" *ngIf="registerForm.get('telefono')?.hasError('maxlength')">
+                                    el telefono debe ser de maximo 10 caracteres
+                                </small>
                             </div>
                         </div>
                         <div>
                             <label for="celular">Celular:</label>
-                            <input type="tel" id="celular" name="celular">
+                            <input type="tel" id="celular" name="celular" formControlName="celular"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['celular'].errors }">
+                                <div
+                                *ngIf="registerForm.get('celular')?.invalid &&
+                                    registerForm.get('celular')?.errors &&
+                                    (registerForm.get('celular')?.dirty || registerForm.get('celular')?.touched)">
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('celular')?.hasError('required')">
+                                    El telefono es requerido
+                                </small>
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('celular')?.hasError('maxlength')">
+                                    el celular debe ser de maximo 10 caracteres
+                                </small>
+                            </div>
                         </div>
                         <div>
                             <label for="correo">Correo: </label>
-                            <input type="email" name="correo" id="correo"
-                            formControlName="correo"
-                            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['correo'].errors }">
-                            <div *ngIf="submitted && registerForm.controls['correo'].errors" class="text-danger">
-                                <div *ngIf="registerForm.controls['correo'].errors['required']">El correo es requerido
-                                </div>
+                            <input type="email" name="correo" id="correo" formControlName="correo"
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls['correo'].errors }">
+                            <div
+                                *ngIf="registerForm.get('nombreCompleto')?.invalid &&
+                                registerForm.get('nombreCompleto')?.errors &&
+                                (registerForm.get('nombreCompleto')?.dirty || registerForm.get('nombreCompleto')?.touched)">
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('nombreCompleto')?.hasError('required')">
+                                    El nombre es requerido
+                                </small>
+                                <small class="text-danger"
+                                    *ngIf="registerForm.get('nombreCompleto')?.hasError('email')">
+                                    correo invalido
+                                </small>
                             </div>
                         </div>
                     </div>
